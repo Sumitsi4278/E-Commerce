@@ -1,0 +1,66 @@
+<% layout('layouts/boilerplate') -%>
+
+  <section class="conatiner">
+    <h1 class="display-6 mb-3">My Cart</h1>
+
+    <div class="row">
+      <div class="col-lg-8">
+        <% for( let item of user.cart) { %>
+          <div class="card mb-3" style="max-width: 640px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="<%= item.productId.img %>" class="img-fluid rounded-start" alt="..." style="width: 100%; max-height: 100%;">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  
+                  <h5 class="card-title d-flex justify-content-between">
+                    <span><%= item.productId.name %></span>
+                    <span>
+                      <form action="/user/<%= item.productId._id %>?_method=DELETE" method="post">
+                        <button style="border: none; background: none;"><i class="fa fa-times btn" aria-hidden="true"></i></button>
+                      </form>
+                    </span>
+                  </h5>
+                  <p class="card-text">
+                    <%= item.productId.desc %>
+                  </p>
+                </div>
+                <div class="ma-le">
+                  <form class="d-inline" action="/user/<%= item.productId._id %>/remove" method="post">
+                    <button class="bg-primary text-light"><i class="fa-solid">&#8722;</i></button>
+                  </form>
+                    <p class="d-inline"><%= item.quantity %></p>
+                    <form class="d-inline" action="/user/<%= item.productId._id %>/add" method="post">
+                      <button class="bg-primary text-light"><i class="fa-solid">&#43;</i></button>
+                    </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% } %>
+      </div>
+      <div class="col-lg-4">
+        <!-- <% let Total = 0; %> -->
+        <ul class="list-group">
+          <% for( let item of user.cart ) { %>
+            <li class="list-group-item">
+              <span class="fw-bold"> <%= item.productId.name %> </span> -
+              <span> $ <%= item.productId.price %> </span> x
+              <span> <%= item.quantity %> </span>
+            </li>
+            <!-- <% Total += ((item.productId.price)*item.quantity); %> -->
+          <% } %>
+          <li class="list-group-item">
+            <span id="totalAmount" class="fw-bold">Total Amount: $ <%= totalAmount %></span>
+          </li>
+        </ul>
+        <form >
+        </form>
+        <button id="checkOut-btn" class="btn btn-success mt-3 btn-sm">Checkout</button>
+      </div>
+    </div>
+
+  </section>
+  <script src="/js/checkout.js"></script>
+  <!-- 11aug 02:16:00  -->

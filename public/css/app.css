@@ -1,0 +1,63 @@
+.card img {
+    height: 200px;
+}
+
+main {
+    margin-top: 5rem;
+    flex-grow: 1;
+}
+
+.outer-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-family: "Orbitron", sans-serif;
+    letter-spacing: 0.08em;
+}
+
+/* img{
+    cursor: pointer;
+} */
+#productIMG{
+    cursor: pointer;
+}
+
+.signup a, .login a{
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid black;
+}
+
+.fas.fa-heart{
+    color: #0d6efd;
+}
+
+/* .d-flex{
+    display: flex;
+    align-items: center;
+    /* justify-content: center; 
+} */
+
+/* .d-flex p {
+    margin-top: 12px;
+    padding: 1px 8px 1px 8px;
+    border: 1px solid black;
+} */
+
+/* .cross {
+    display: inline;
+    cursor: pointer;
+    text-align: right;
+} */
+
+/* .container-c{
+    text-align: right;
+} */
+
+.ma-le {
+    margin-left: 12px;
+}
